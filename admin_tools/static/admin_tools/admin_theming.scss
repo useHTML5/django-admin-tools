@@ -1,0 +1,494 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap&subset=cyrillic,cyrillic-ext');
+
+$font-family-sans-serif: 'Ubuntu';
+$primary: #18517b;
+
+@import "design/static/bootstrap/functions";
+
+//$line-height-base: 1;
+//$input-btn-padding-y: .375rem !default;
+//$input-btn-padding-x: .75rem !default;
+@import "design/static/bootstrap/variables";
+@import "design/static/bootstrap/mixins";
+@import "design/static/bootstrap/buttons";
+@import "design/static/bootstrap/forms";
+
+body {
+  font-family: "Ubuntu", sans-serif;
+}
+
+$border-padding: 20px;
+$bg-color: $primary;
+
+#navigation-menu li.menu-item.first {
+  padding-left: 6px;
+}
+
+//небольшой отступ внутри админки чтоб не прилипало всё
+#content {
+  padding: 0;
+  margin: $border-padding;
+}
+
+//правую границу не было видно пока эту штуку не установил
+.cke_reset {
+  box-sizing: border-box;
+}
+
+//бутстрап немного стиль таблицы кривил
+table tr.form-row {
+  display: table-row;
+}
+
+
+//зачемто отсуп везде был
+//изза него криво выглядело меню сверху
+ul li {
+  padding: 0px 0px;
+}
+
+//красиво чтоб меню выпадало
+ul#navigation-menu > li > ul {
+  padding-top: 2px;
+}
+
+//#container > #content {
+//  margin: 0;
+//}
+
+#header {
+  background: $bg-color;
+  padding-left: 0;
+  padding-right: 0;
+  color: white;
+}
+
+#header #user-tools {
+  padding-right: 0px;
+  margin: 5px $border-padding 0 $border-padding;
+}
+
+#header #bookmark-button {
+  top: 60px;
+}
+
+//кнопки - подправили немного отступы
+div.breadcrumbs {
+  background: $bg-color;
+  padding: 10px $border-padding;
+}
+
+//лого в шапке
+#header #branding h1 {
+  margin: 11px;
+  text-indent: -9999px;
+  background: transparent url(/static/admin_tools/images/django.png) 5px 4px no-repeat;
+  background-size: contain;
+  height: 31px;
+  width: 84px;
+  border-radius: 0px;
+}
+
+//фильтры справа в списке записей
+#changelist-filter h2 {
+  background: $primary;
+}
+
+//внутри формы вложенная ссылка
+.inline-group h2 {
+  background: $primary;
+}
+
+//файл во вложенной форме сжимался сильно
+form .form-row .filer-dropzone {
+  min-width: 280px;
+}
+
+//в виджете выбора страницы для django-cms форма одна на другую наваливалась
+.related-widget-wrapper select {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+//цвет ссылок
+a:link, a:visited {
+  color: $primary;
+}
+
+//цвета ссылок в фильтрах
+#changelist-filter li.selected a {
+  color: $primary;
+}
+
+
+//кнопка добавления в админку модуля
+#container #dashboard-panel h3 a {
+  @extend .btn;
+  @extend .btn-outline-primary;
+  @extend .btn-sm;
+}
+
+//внутри кнопок не очень красиво выглядели иконки и сам их вид под бутстрап кнопки заточили
+#container .object-tools {
+
+  a:link, a:visited {
+    @extend .btn;
+    @extend .btn-outline-primary;
+    @extend .btn-sm;
+  }
+
+  a.viewsitelink {
+    background-image: none;
+  }
+
+  a.addlink {
+    background-image: none;
+  }
+}
+
+//внутри формы выбор многое ко многим шапка
+.selector .selector-available h2, .selector .selector-chosen h2 {
+  color: white;
+  margin-bottom: 0px !important;
+}
+
+.selector {
+  width: auto;
+}
+
+.deletelink-box {
+  .cms-btn-group:not(.cms-btn-active) {
+    @extend .btn;
+    @extend .btn-outline-primary;
+  }
+
+  .cms-btn-group.cms-btn-active {
+    @extend .btn;
+    @extend .btn-primary;
+  }
+}
+
+//прячем лишние кнопки файлера
+.filer-dropzone + .change-related {
+  display: none;
+}
+
+.filer-dropzone + .change-related + .delete-related {
+  display: none;
+}
+
+//внутри формы поправим отсупы и шрифт
+div.form-row {
+  padding: 0px;
+  font-size: 14px;
+  border-bottom: 0px;
+}
+
+//внутри формы отступ у блоков
+.module div.form-row {
+  margin-bottom: 25px;
+
+}
+
+//в попапе чтоб меньше места занимало
+.popup {
+  #content {
+    padding: 0;
+    margin: 10px;
+    margin-bottom: 0;
+  }
+
+  #footer {
+    padding: 0;
+  }
+}
+
+//внутри двигаемого блкоа админки
+.dashboard-module-content {
+  background: white;
+  border-top: 1px solid #ececec;
+
+  p {
+    background: white;
+    padding: 10px;
+    margin: 0;
+  }
+
+  a {
+    color: $bg-color;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  //& > ul > li {
+  //  display: flex;
+  //  flex: 1 0 auto;
+  //  &> ul {
+  //    flex-grow: 1;
+  //  }
+  //}
+
+}
+
+
+.dashboard-module ul li:hover {
+  background: #f8f8f8;
+}
+
+//filer чтоб не делал в админке таких больших отсупов
+.filebrowser #container .breadcrumbs + #content, .filebrowser #container .breadcrumbs + .messagelist + #content {
+  margin-left: 20px !important;
+}
+
+//чудит страница со списком CMS-страниц
+//кнопка добавить налаз внутри плюсик
+.cms-pagetree-empty .addlink {
+  padding-left: 16px;
+}
+
+//кнопка найти высота плохая была
+#changelist #toolbar form input[type="submit"] {
+  min-height: 25px;
+}
+
+//добавление модуля нового
+#dashboard-panel ul {
+  right: 15px;
+  margin-top: -2px;
+}
+
+//ширина плашки
+#dashboard-panel ul li a {
+  min-width: 220px;
+
+  &.addlink {
+    background: url(/static/admin/img/icon-addlink.svg) 0 4px no-repeat;
+  }
+
+}
+
+//сделаем стиль кнопок посерьезнее
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+  @extend .btn;
+  @extend .btn-primary;
+
+}
+
+.submit-row {
+  //а эта кнопка пвыбивалась из стандарта изза высоты не по формату
+  input {
+    height: auto;
+  }
+
+  a.deletelink {
+    height: auto;
+  }
+}
+
+
+//файлер в попапе выглядел узко
+.filerFile.js-file-selector {
+  display: flex;
+
+  .description_text {
+    flex-grow: 1;
+  }
+}
+
+//заголовок формы
+#content > h1 {
+  color: $primary;
+}
+
+//подправим стиль readcrumbs для
+div.breadcrumbs a {
+  margin-left: 10px;
+  margin-right: 10px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+
+//нопка submit пусть будет особенной
+.submit-row input[type=submit] {
+  background: white;
+  @extend .btn-outline-primary;
+  border: 1px solid $primary;
+
+  &[name=_save]{
+    font-weight: bold;
+  }
+
+}
+
+//цвет невзрачный у плашки в форме которая может расширяться
+fieldset.collapsed h2 {
+  color: white;
+}
+
+fieldset.collapsed {
+  border-width: 0;
+  //чтоб компактнее был (не пряталался изза отступа)
+  margin-bottom: 0px;
+}
+
+//пряталось криво
+//чтоб компактнее был (не пряталался изза отступа)
+fieldset.module.collapsed div.form-row {
+  margin-bottom: 0px;
+}
+
+div.form-row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+//зажимало поля формы внутри интерфейса (filer)
+.form-row, .module div.form-row {
+  display: block;
+}
+
+//filer красиво отображать
+@media (max-width: 767px) {
+  .related-widget-wrapper {
+    display: block;
+  }
+}
+
+//а это у них было разное про кнопки итд
+.hide-in-modal {
+  display: none;
+}
+
+.cms-admin-modal {
+  //убираем шапку внутри попапа
+  #header {
+    display: none;
+  }
+
+  //убираем крошки внутри попапа
+  .breadcrumbs {
+    display: none;
+  }
+
+  //и кнопку удаления
+  .button.cancel-link {
+    display: none;
+  }
+}
+
+.dashboard-module {
+  //заголовк блока который можно двигать
+  h2 {
+    height: auto;
+    padding: 10px 10px;
+    font-size: 16px;
+  }
+
+  //заголовки приложений криво были
+  h3 {
+    padding: 0px 10px;
+    margin: 0;
+    height: auto;
+    line-height: 20px;
+
+    a {
+      margin: 0;
+      color: #666;
+      font-size: 10px;
+      font-weight: normal;
+      line-height: 10px;
+      padding: 0px 0px;
+    }
+  }
+
+  //название модели
+  ul li {
+    padding: 10px 10px;
+  }
+
+
+}
+
+
+#content {
+  padding: 0px 0px;
+}
+
+.popup {
+  //обычный белый фон чтоб был
+  #content-wrapper {
+    background-color: white !important;
+  }
+
+  //не нужны копирайты в попапе
+  .sticky-footer {
+    display: none;
+  }
+}
+
+.navbar ul li {
+  list-style-type: none;
+}
+
+
+.hidden {
+  display: none !important;
+}
+
+#content-main .module {
+  background: transparent;
+
+  //2 колонки выбора
+  .related-widget-wrapper {
+    .selector-available, .selector-chosen {
+      width: 450px;
+    }
+
+    .selector select {
+      width: 450px;
+    }
+  }
+
+  //разделитель блоков внутри формы
+  &.aligned h2 {
+    margin-bottom: 20px;
+    background-color: $primary;
+    border-radius-top-right: 4px;
+    border-radius-top-left: 4px;
+    border: 1px solid darken($primary, 5%);
+    font-size: 14px;
+    padding-left: 20px;
+  }
+
+  .form-row {
+
+    > div {
+      //узкие селекты были
+      > input[type=text], > input[type=email] {
+        min-width: 700px;
+      }
+
+      //узкие селекты были
+      > textarea {
+        min-width: 700px;
+        min-height: 200px;
+      }
+
+      //узкие селекты были
+      > select {
+        min-width: 714px;
+      }
+
+      //узкие селекты были
+      .select2-container {
+        width: 714px;
+      }
+    }
+
+  }
+}
