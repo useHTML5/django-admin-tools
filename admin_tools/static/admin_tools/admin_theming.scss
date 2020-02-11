@@ -3,15 +3,11 @@
 $font-family-sans-serif: 'Ubuntu';
 $primary: #18517b;
 
-@import "design/static/bootstrap/functions";
-
-//$line-height-base: 1;
-//$input-btn-padding-y: .375rem !default;
-//$input-btn-padding-x: .75rem !default;
-@import "design/static/bootstrap/variables";
-@import "design/static/bootstrap/mixins";
-@import "design/static/bootstrap/buttons";
-@import "design/static/bootstrap/forms";
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+@import "bootstrap/buttons";
+@import "bootstrap/forms";
 
 body {
   font-family: "Ubuntu", sans-serif;
