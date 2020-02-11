@@ -41,4 +41,9 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules'
     ],
     zip_safe=False,
+    install_requires=[
+        "django>=2.2",
+        'django-libsass',
+        'git+https://github.com/useHTML5/bootstrap-scss.git@0.2'
+    ],
 )
