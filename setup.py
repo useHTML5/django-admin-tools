@@ -44,6 +44,7 @@ setup(
     install_requires=[
         "django>=2.2",
         'django-libsass',
-        'git+https://github.com/useHTML5/bootstrap-scss.git@0.2'
+        'git+https://github.com/useHTML5/bootstrap-scss.git@0.2',
+        'django-compressor',
     ],
 )
